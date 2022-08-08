@@ -2,12 +2,16 @@ import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
 import authRoute from './routes/auth';
+import connectDB from './config/db';
 
 //intialized app
 const app = express();
 
 // loaed env varibal
 dotenv.config();
+
+//database connection
+connectDB();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

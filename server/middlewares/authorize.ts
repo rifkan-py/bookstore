@@ -1,12 +1,17 @@
 import { NextFunction, Request, Response } from 'express';
 
-interface TypedRequest extends Request {
+export interface TypedRequest extends Request {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   user: any;
 }
 
+enum Roles {
+  USER = 'USERS',
+  ATUHOR = 'AUTHORS',
+}
+
 const authorize =
-  (...roles: string[]) =>
+  (...roles: Roles[]) =>
   (req: Request, res: Response, next: NextFunction) => {
     if (!roles.includes((<TypedRequest>req).user.role))
       throw new Error('authorization denied.');

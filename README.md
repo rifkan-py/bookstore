@@ -11,7 +11,3 @@
 
   yarn dev
 ```
-
-<!-- ## **_database diagram_** -->
-
-<!-- ![ER diagram](https://svg.template.creately.com/he7cxejx1) -->
